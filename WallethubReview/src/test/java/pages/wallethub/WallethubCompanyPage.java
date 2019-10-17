@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import configreader.ObjectRepository;
 import logger.LoggerHandler;
 import wrappers.GenericHandlers;
 import wrappers.WaitHandler;
@@ -21,7 +22,10 @@ public class WallethubCompanyPage {
 	WebElement review;
 	
 	@FindBy(xpath="(//review-star[@class='rvs-svg']//*[4])[1]")
-	WebElement fourthStar;
+	WebElement rating;
+	
+	@FindBy(xpath="//article[@class='rvtab-citem rvtab-item-user ng-enter-element']//div[@class='rvtab-ci-content with-links text-select']")
+	WebElement reviewComments;
 	
 	public WallethubCompanyPage(WebDriver driver) {
 		this.driver = driver;
@@ -36,9 +40,17 @@ public class WallethubCompanyPage {
 		return this;
 	}
 	
-	public void hoverOverStar(int starNumber) {
+	public String getReviewComments() {
+		log.info("Verifying review comments");
+		wait.waitForElementToBeVisible(reviewComments, ObjectRepository.reader.getExplicitWait());
+		return handlers.getText(reviewComments);
+	}
+	
+	public WallethubNewReview hoverOverStar() {
 		log.info("Selecting rating");
-		wait.waitForElementToBeVisible(fourthStar, 30);
-		handlers.mouseOver(fourthStar);
+		wait.waitForElementToBeVisible(rating, ObjectRepository.reader.getExplicitWait());
+		handlers.mouseOver(rating);
+		handlers.clickElement(rating);
+		return new WallethubNewReview(this.driver);
 	}
 }

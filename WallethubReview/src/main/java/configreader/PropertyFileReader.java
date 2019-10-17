@@ -24,32 +24,39 @@ public class PropertyFileReader implements ConfigReader {
 		}
 	}
 
+	@Override
 	public BrowserType getBrowser() {
 		return BrowserType.valueOf(prop.getProperty("Browser"));
 	}
-
-	public String getReservationUrl() {
-		return prop.getProperty("ReservationUrl");
-	}
-
-	public String getHerokuappUrl() {
-		return prop.getProperty("HerokuappUrl");
-	}
 	
+	@Override
 	public int getPageLoadTimeOut() {
 		return Integer.parseInt(prop.getProperty("PageLoadTimeOut"));
 	}
 
+	@Override
 	public int getImplicitWait() {
 		return Integer.parseInt(prop.getProperty("ImplicitWait"));
 	}
 
+	@Override
 	public int getExplicitWait() {
 		return Integer.parseInt(prop.getProperty("ExplicitWait"));
 	}
 
+	@Override
 	public long getPollingTimeInMilliSecond() {
 		return Long.parseLong(prop.getProperty("PollingTimeInMilliSecond"));
+	}
+	
+	@Override
+	public String getUsername() {
+		return prop.getProperty("Username");
+	}
+
+	@Override
+	public String getPassword() {
+		return prop.getProperty("Password");
 	}
 	
 	public Level getLoggerLevel() {
@@ -67,4 +74,5 @@ public class PropertyFileReader implements ConfigReader {
 		}
 		return Level.ALL;
 	}
+
 }

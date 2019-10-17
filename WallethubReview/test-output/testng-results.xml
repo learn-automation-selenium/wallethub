@@ -2,12 +2,12 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="15800" started-at="2019-10-16T10:54:31Z" finished-at="2019-10-16T10:54:47Z">
+  <suite name="Suite" duration-ms="31458" started-at="2019-10-17T10:23:25Z" finished-at="2019-10-17T10:23:57Z">
     <groups>
     </groups>
-    <test name="Test" duration-ms="15800" started-at="2019-10-16T10:54:31Z" finished-at="2019-10-16T10:54:47Z">
+    <test name="Test" duration-ms="31458" started-at="2019-10-17T10:23:25Z" finished-at="2019-10-17T10:23:57Z">
       <class name="test.testcases.WallethubTest">
-        <test-method status="PASS" signature="setData(java.lang.String)[pri:0, instance:test.testcases.WallethubTest@210366b4]" name="setData" is-config="true" duration-ms="11" started-at="2019-10-16T10:54:31Z" finished-at="2019-10-16T10:54:31Z">
+        <test-method status="PASS" signature="setData(java.lang.String)[pri:0, instance:test.testcases.WallethubTest@67784306]" name="setData" is-config="true" duration-ms="27" started-at="2019-10-17T10:23:25Z" finished-at="2019-10-17T10:23:25Z">
           <params>
             <param index="0">
               <value>
@@ -18,19 +18,15 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setData -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:test.testcases.WallethubTest@210366b4]" name="setUp" is-config="true" duration-ms="15065" started-at="2019-10-16T10:54:31Z" finished-at="2019-10-16T10:54:47Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:test.testcases.WallethubTest@67784306]" name="setUp" is-config="true" duration-ms="15697" started-at="2019-10-17T10:23:25Z" finished-at="2019-10-17T10:23:41Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="createNewReview()[pri:0, instance:test.testcases.WallethubTest@210366b4]" name="createNewReview" duration-ms="697" started-at="2019-10-16T10:54:47Z" finished-at="2019-10-16T10:54:47Z">
+        <test-method status="PASS" signature="createNewReview()[pri:0, instance:test.testcases.WallethubTest@67784306]" name="createNewReview" duration-ms="11598" started-at="2019-10-17T10:23:41Z" finished-at="2019-10-17T10:23:53Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- createNewReview -->
-        <test-method status="PASS" signature="afterMethod()[pri:0, instance:test.testcases.WallethubTest@210366b4]" name="afterMethod" is-config="true" duration-ms="1" started-at="2019-10-16T10:54:47Z" finished-at="2019-10-16T10:54:47Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:test.testcases.WallethubTest@210366b4]" name="tearDown" is-config="true" duration-ms="0" started-at="2019-10-16T10:54:47Z" finished-at="2019-10-16T10:54:47Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:test.testcases.WallethubTest@67784306]" name="tearDown" is-config="true" duration-ms="4103" started-at="2019-10-17T10:23:53Z" finished-at="2019-10-17T10:23:57Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

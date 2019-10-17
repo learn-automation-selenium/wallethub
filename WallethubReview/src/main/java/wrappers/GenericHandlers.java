@@ -131,46 +131,13 @@ public class GenericHandlers {
 	public void enterData(WebElement element, String data) {
 		try {
 			element.clear();
-			element.sendKeys(data);	
+			element.sendKeys(data);
+			log.info("The data: "+data+" entered successfully in field");
 		} catch (NoSuchElementException e) {
 			log.error("The data: "+data+" could not be entered in the field");
 			log.error(e.getStackTrace());
 		} catch (Exception e) {
 			log.error("Unknown exception occured while entering "+data+" in the field");
-			log.error(e.getStackTrace());
-		}
-		log.info("The data: "+data+" entered successfully in field");
-	}
-
-
-	/**
-	 * This method will enter the value to the text area
-	 * @param element
-	 * @param data
-	 */
-	public void enterTextAreaData(WebElement element, String data) {
-		try {
-			element.sendKeys(data);	
-		} catch (NoSuchElementException e) {
-			log.error("The data: "+data+" could not be entered in the field");
-			log.error(e.getStackTrace());
-		} catch (Exception e) {
-			log.error("Unknown exception occured while entering "+data+" in the field");
-			log.error(e.getStackTrace());
-		}
-		log.info("The data: "+data+" entered successfully in field");
-	}
-
-	/**
-	 * This method will close all the browsers
-	 */
-	public void closeAllBrowsers() {
-		try {
-			if (driver!=null) {
-				driver.quit();
-			}
-		} catch (Exception e) {
-			log.error("The browser could not be closed.");
 			log.error(e.getStackTrace());
 		}
 	}
@@ -204,24 +171,6 @@ public class GenericHandlers {
 	}
 
 	/**
-	 * This method will check if the radio button is not selected, then select the radio button
-	 * @param radioElement
-	 */
-	public void selectElement(WebElement radioElement) {
-		boolean isSelected = false;
-		try {
-			isSelected = radioElement.isSelected();
-			if (!isSelected) {
-				radioElement.click();
-			}
-		} catch (Exception e) {
-			log.error("The element : "+radioElement+" could not be selected.");
-			log.error(e.getStackTrace());
-		}
-		log.info("The element : "+radioElement+" is selected.");
-	}
-
-	/**
 	 * This method will mouse over on the element using xpath as locator
 	 * @param xpathVal  The xpath (locator) of the element to be moused over
 	 */
@@ -239,7 +188,7 @@ public class GenericHandlers {
 	 * This method will return the text of the element using xpath as locator
 	 * @param xpathVal  The xpath (locator) of the element
 	 */
-	public String getTextByXpath(WebElement element){
+	public String getText(WebElement element){
 		String bReturn = "";
 		try{
 			return element.getText();
@@ -248,52 +197,5 @@ public class GenericHandlers {
 			log.error(e.getStackTrace());
 		}
 		return bReturn; 
-	}
-
-	/**
-	 * This method will take snapshot of the browser
-	 */
-	public String takeSnap(){
-		long number = UtilityClass.getRandomNumber();
-		String destinationPath="";
-		File srcFile = null;
-		File destFile = null;
-		String screenShotPath ="";
-		try {
-			destinationPath = ResourceHandler.getResourcePath("\\src\\main\\resources\\screenshots");
-			srcFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-			destFile = new File(destinationPath+"\\" +number+ ".jpg");
-			FileUtils.copyFile(srcFile , destFile);
-			screenShotPath = destFile.getAbsolutePath();
-		} catch (WebDriverException e) {
-			log.error(e.getStackTrace());
-		} catch (IOException e) {
-			log.error(e.getStackTrace());
-		}
-		return screenShotPath;
-	}
-
-	/**
-	 * This method will take snapshot of full screen using Robot class
-	 */
-	public String takeFullSnap() {
-		long number = UtilityClass.getRandomNumber();
-		String destinationPath= "";
-		String screenShotPath = "";
-		try {
-			Robot robot = new Robot();
-			String format = "jpg";
-			destinationPath = ResourceHandler.getResourcePath("\\src\\main\\resources\\screenshots"); 
-			File destFile = new File(destinationPath+"\\" +number+ "." + format);
-			Rectangle screenRect = new Rectangle(Toolkit.getDefaultToolkit().getScreenSize());
-			BufferedImage screenFullImage = robot.createScreenCapture(screenRect);
-			ImageIO.write(screenFullImage, format, destFile);
-			screenShotPath = destFile.getAbsolutePath(); 
-		} catch (AWTException | IOException ex) {
-			log.error(ex.getStackTrace());
-		} catch (Exception e) {
-			log.error(e.getStackTrace());
-		}
-		return screenShotPath;
 	}
 }

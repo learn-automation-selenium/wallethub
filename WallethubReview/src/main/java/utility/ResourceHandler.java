@@ -21,9 +21,4 @@ public class ResourceHandler {
 		return new FileInputStream(ResourceHandler.getResourcePath(resource));
 		
 	}
-	
-	public static void main(String[] args) {
-		System.out.println(ResourceHandler.getResourcePath("\\configfile\\" + "config.properties"));
-	}
-
 }

@@ -5,8 +5,8 @@ import browser.BrowserType;
 public interface ConfigReader {
 
 	public BrowserType getBrowser();
-	public String getReservationUrl();
-	public String getHerokuappUrl();
+	public String getUsername();
+	public String getPassword();
 	public int getPageLoadTimeOut();
 	public int getImplicitWait();
 	public int getExplicitWait();
